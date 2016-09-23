@@ -22,39 +22,39 @@ public class Client {
   }
 
   // Getter and Setter Methods
-//
-//   public String getName() {
-//     return name;
-//   }
+
+  public String getName() {
+    return name;
+  }
 //
 //   public void setName(String _name) {
 //     this.name = name;
 //   }
 //
-//   public String getPhone() {
-//     return phone;
-//   }
+  public String getPhone() {
+    return phone;
+  }
 //
 //   public void setPhone(String _phone) {
 //     this.phone = _phone;
 //   }
 //
-//   public String getEmail() {
-//     return email;
-//   }
+  public String getEmail() {
+    return email;
+  }
 //
 //   public void setEmail(String _email) {
 //     this.email = _email;
 //   }
-//   public Date getNextAppt() {
-//     return next_appt;
-//   }
+  public Date getNextAppt() {
+    return next_appt;
+  }
 //   public void setNextAppt(Date _date) {
 //     this.next_appt = _date;
 //   }
-//   public String getImgUrl() {
-//     return img_url;
-//   }
+  public String getImgUrl() {
+    return img_url;
+  }
 //   public void setImgUrl(String _url) {
 //     this.img_url = _url;
 //   }
