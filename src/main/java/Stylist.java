@@ -10,18 +10,18 @@ public class Stylist {
   private String img_URL;
   private String email;
   private String bio;
-  private String days_available;
+  private String days;
   private String instagram;
   private int id;
 
-  public Stylist(String _name, String _phone, String _img_URL, String _email, String _specialty, String _bio, String _days_available, String _instagram){
+  public Stylist(String _name, String _phone, String _img_URL, String _email, String _specialty, String _bio, String _days, String _instagram){
     name = _name;
     phone = _phone;
     img_URL = _img_URL;
     email = _email;
     specialty = _specialty;
     bio = _bio;
-    days_available = _days_available;
+    days = _days;
     instagram = _instagram;
   }
 
@@ -58,7 +58,7 @@ public class Stylist {
   }
 
   public String getDays() {
-    return days_available;
+    return days;
   }
 
   public void setName(String _name) {
@@ -90,7 +90,7 @@ public class Stylist {
   }
 
   public void setDays(String _days) {
-    this.days_available = _days;
+    this.days = _days;
   }
 
   public List<Client> getClients() {
@@ -138,7 +138,7 @@ public class Stylist {
         .addParameter("bio", this.bio)
         .addParameter("instagram", this.instagram)
         .addParameter("specialty", this.specialty)
-        .addParameter("day", this.days_available)
+        .addParameter("day", this.days)
         .executeUpdate()
         .getKey();
     }
@@ -146,7 +146,7 @@ public class Stylist {
 
   public void update() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE stylists SET (name, phone, img_url, email, bio, instagram, specialty, days) = (:name, :phone, :img_url, :email, :bio, :instagram, :specialty, :days WHERE id = :id);";
+      String sql = "UPDATE stylists SET (name, phone, img_url, email, bio, instagram, specialty, days) = (:name, :phone, :img_url, :email, :bio, :instagram, :specialty, :days) WHERE id = :id;";
       con.createQuery(sql)
         .addParameter("name", this.name)
         .addParameter("phone", this.phone)
@@ -155,7 +155,7 @@ public class Stylist {
         .addParameter("bio", this.bio)
         .addParameter("instagram", this.instagram)
         .addParameter("specialty", this.specialty)
-        .addParameter("days", this.days_available)
+        .addParameter("days", this.days)
         .addParameter("id", this.id)
         .executeUpdate();
     }

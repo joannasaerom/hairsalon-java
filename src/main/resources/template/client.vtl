@@ -1,11 +1,11 @@
 <!-- Navigation Bar -->
 <div class="nav">
   <a href="/">Home</a> |
-  <a href="#">View Stylists</a> |
+  <a href="/stylists">View Stylists</a> |
   <a href="#">Something</a>
 </div>
 <div class="center">
-  <h2>$client.getName() <span class="editIcons"> <a href="#" title="Edit Client"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="#" title="Delete Client"><i class="fa fa-trash-o" aria-hidden="true"></i></a></span></h2>
+  <h2>$client.getName() <span class="editIcons"> <a href="/stylists/$stylist.getId()/boards/$client.getId()/edit" title="Edit Client"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="/stylists/$stylist.getId()/boards/$client.getId()/delete" title="Delete Client"><i class="fa fa-trash-o" aria-hidden="true"></i></a></span></h2>
   <img src="$client.getImgUrl()">
   <div class="description">
     <h3><strong>Phone:</strong> $client.getPhone()</h3>

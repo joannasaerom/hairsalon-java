@@ -1,16 +1,16 @@
 <!-- Navigation Bar -->
 <div class="nav">
-  <a href="#">Home</a> |
-  <a href="#">View Stylists</a> |
+  <a href="/">Home</a> |
+  <a href="/stylists">View Stylists</a> |
   <a href="#">Services</a>
 </div>
 <div class="center">
   <h2>View Clients:</h2>
   #if (!($clients.isEmpty()))
-  <p><a href="#">Add new client.</a></p>
+  <p><a href="/stylists/$stylist.getId()/clients/new">Add new client.</a></p>
   #foreach ($client in $clients)
   <div class="hoverImage">
-    <a href="#">
+    <a href="/stylists/$stylist.getId()/clients/$client.getId()">
       <img src="$client.getImgUrl()" class="img-responsive">
       <div class="hoverText">
         <p>$client.getName()</p>
@@ -19,6 +19,6 @@
   </div>
   #end
   #else
-    <p>You currently have 0 clients. <a href="/companies/new">Add a client.</a></p>
+    <p>You currently have 0 clients. <a href="/stylists/$stylist.getId()/clients/new">Add a client.</a></p>
   #end
 </div>

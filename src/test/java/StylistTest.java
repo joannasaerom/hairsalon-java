@@ -168,15 +168,16 @@ public class StylistTest {
   }
 
   @Test
-  public void getClients_retrievesClientsForStylist_ArrayList() {
+  public void getClients_retrievesClientsForStylist_true() {
     Stylist testStylist = new Stylist("Joanna", "123-456-7890", "www.example.com", "me@me.com", "Coloring", "Sample bio", "M-F", "testhandle");
+    int stylistId = testStylist.getId();
     Date next_appt1 = Date.valueOf("2016-12-05");
-    Client testClient1 = new Client("Joanna", "123-456-7890", "me@me.com", next_appt1, "https://pbs.twimg.com/profile_images/739247958340698114/fVKY9fOv.jpg", 1);
+    Client testClient1 = new Client("Joanna", "123-456-7890", "me@me.com", next_appt1, "https://pbs.twimg.com/profile_images/739247958340698114/fVKY9fOv.jpg", stylistId);
     testClient1.save();
     Date next_appt2 = Date.valueOf("2016-12-05");
-    Client testClient2 = new Client("Joanna", "123-456-7890", "me@me.com", next_appt2, "https://pbs.twimg.com/profile_images/739247958340698114/fVKY9fOv.jpg", 1);
+    Client testClient2 = new Client("Joanna", "123-456-7890", "me@me.com", next_appt2, "https://pbs.twimg.com/profile_images/739247958340698114/fVKY9fOv.jpg", stylistId);
     testClient2.save();
-    Client[] clients = new Client[] {testClient1, testClient2};
-    assertTrue(testStylist.getClients().containsAll(Arrays.asList(clients)));
+    assertEquals(true, testStylist.getClients().contains(testClient1));
+    assertEquals(true, testStylist.getClients().contains(testClient2));
   }
 }
