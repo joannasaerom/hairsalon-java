@@ -89,13 +89,64 @@ public class ClientTest {
    assertEquals(Client.find(testClient.getId()), testClient);
  }
 
- // @Test
- // public void setName_resetsNameToGivenArgument_String() {
- //   Date next_appt = Date.valueOf("2016-12-05");
- //   Client testClient = new Client("Joanna", "123-456-7890", "me@me.com", next_appt, "https://pbs.twimg.com/profile_images/739247958340698114/fVKY9fOv.jpg", 1);
- //testClient.save();
- //   testClient.setName("Emily");
- //testClient.update();
- //   assertEquals("Emily", testClient.getName());
- // }
+ @Test
+ public void setName_resetsNameToGivenArgument_String() {
+   Date next_appt = Date.valueOf("2016-12-05");
+   Client testClient = new Client("Joanna", "123-456-7890", "me@me.com", next_appt, "https://pbs.twimg.com/profile_images/739247958340698114/fVKY9fOv.jpg", 1);
+   testClient.save();
+   testClient.setName("Emily");
+   testClient.update();
+   assertEquals("Emily", testClient.getName());
+ }
+
+ @Test
+ public void setPhone_resetsPhoneToGivenArgument_String() {
+   Date next_appt = Date.valueOf("2016-12-05");
+   Client testClient = new Client("Joanna", "123-456-7890", "me@me.com", next_appt, "https://pbs.twimg.com/profile_images/739247958340698114/fVKY9fOv.jpg", 1);
+   testClient.save();
+   testClient.setPhone("757-947-4274");
+   testClient.update();
+   assertEquals("757-947-4274", testClient.getPhone());
+ }
+
+ @Test
+ public void setEmail_resetsEmailToGivenArgument_String() {
+   Date next_appt = Date.valueOf("2016-12-05");
+   Client testClient = new Client("Joanna", "123-456-7890", "me@me.com", next_appt, "https://pbs.twimg.com/profile_images/739247958340698114/fVKY9fOv.jpg", 1);
+   testClient.save();
+   testClient.setEmail("jsa@me.com");
+   testClient.update();
+   assertEquals("jsa@me.com", testClient.getEmail());
+ }
+
+ @Test
+ public void setNextAppt_resetsNextApptToGivenArgument_String() {
+   Date next_appt = Date.valueOf("2016-12-05");
+   Client testClient = new Client("Joanna", "123-456-7890", "me@me.com", next_appt, "https://pbs.twimg.com/profile_images/739247958340698114/fVKY9fOv.jpg", 1);
+   testClient.save();
+   Date next_appt2 = Date.valueOf("2016-11-05");
+   testClient.setNextAppt(next_appt2);
+   testClient.update();
+   assertEquals(next_appt2, testClient.getNextAppt());
+ }
+
+ @Test
+ public void setImgUrl_resetsImgUrlToGivenArgument_String() {
+   Date next_appt = Date.valueOf("2016-12-05");
+   Client testClient = new Client("Joanna", "123-456-7890", "me@me.com", next_appt, "https://pbs.twimg.com/profile_images/739247958340698114/fVKY9fOv.jpg", 1);
+   testClient.save();
+   testClient.setImgUrl("www.example.com");
+   testClient.update();
+   assertEquals("www.example.com", testClient.getImgUrl());
+ }
+
+ @Test
+ public void setStylistUrl_resetsStylistIdToGivenArgument_2() {
+   Date next_appt = Date.valueOf("2016-12-05");
+   Client testClient = new Client("Joanna", "123-456-7890", "me@me.com", next_appt, "https://pbs.twimg.com/profile_images/739247958340698114/fVKY9fOv.jpg", 1);
+   testClient.save();
+   testClient.setStylistId(2);
+   testClient.update();
+   assertEquals(2, testClient.getStylistId());
+ }
 }

@@ -28,37 +28,37 @@ public class Client {
     return name;
   }
 
-  // public void setName(String _name) {
-  //   this.name = name;
-  // }
+  public void setName(String _name) {
+    this.name = _name;
+  }
 
   public String getPhone() {
     return phone;
   }
-//
-//   public void setPhone(String _phone) {
-//     this.phone = _phone;
-//   }
-//
+
+  public void setPhone(String _phone) {
+    this.phone = _phone;
+  }
+
   public String getEmail() {
     return email;
   }
-//
-//   public void setEmail(String _email) {
-//     this.email = _email;
-//   }
+
+  public void setEmail(String _email) {
+    this.email = _email;
+  }
   public Date getNextAppt() {
     return next_appt;
   }
-//   public void setNextAppt(Date _date) {
-//     this.next_appt = _date;
-//   }
+  public void setNextAppt(Date _date) {
+    this.next_appt = _date;
+  }
   public String getImgUrl() {
     return img_url;
   }
-//   public void setImgUrl(String _url) {
-//     this.img_url = _url;
-//   }
+  public void setImgUrl(String _url) {
+    this.img_url = _url;
+  }
 
   public int getId() {
     return id;
@@ -66,6 +66,10 @@ public class Client {
 
   public int getStylistId() {
     return stylistId;
+  }
+
+  public void setStylistId(int _stylistId) {
+    this.stylistId = _stylistId;
   }
 
 //Methods accessing database
