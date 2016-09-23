@@ -4,6 +4,7 @@ import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
 import org.sql2o.*;
+import java.sql.Date;
 
 public class App {
   public static void main(String[] args) {
@@ -29,9 +30,10 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    get("/stylists/:stylistId", -> (request, response) -> {
+    get("/stylists/:stylistId", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylistId")));
+      int stylistId = Integer.parseInt(request.params(":stylistId"));
+      Stylist stylist = Stylist.find(stylistId);
       model.put("stylist", stylist);
       model.put("clients", stylist.getClients());
       model.put("template", "templates/stylist.vtl");
@@ -49,7 +51,7 @@ public class App {
 
     get("/stylists/:stylistId/clients/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      Stylist stylist = Stylist.find(Integer.parseInt(query.params(":stylistId")));
+      Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylistId")));
       model.put("stylist", stylist);
       model.put("stylists", Stylist.all());
       model.put("template", "templates/client-form.vtl");
@@ -76,7 +78,7 @@ public class App {
       Date nextAppt = Date.valueOf(request.queryParams("nextAppt"));
       Client client = new Client(name, phone, email, nextAppt, imgURL, stylistId);
       client.save();
-      response.redirect("/stylists/ + stylistId");
+      response.redirect("/stylists/" + stylistId);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -105,6 +107,7 @@ public class App {
     }, new VelocityTemplateEngine());
 
     post("/stylists/:stylistId/edit", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
       int stylistId = Integer.parseInt(request.queryParams("stylistId"));
       Stylist stylist = Stylist.find(stylistId);
       stylist.setName(request.queryParams("name"));
@@ -123,8 +126,8 @@ public class App {
     get("/stylists/:stylistId/delete", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylistId")));
-      model.put("stylist", stylist);
-      model.put("template", "templates/stylist-edit.vtl");
+      stylist.delete();
+      response.redirect("/stylists");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -166,17 +169,20 @@ public class App {
 
     get("/stylists/:stylistId/clients/:clientId/delete", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      int stylistId = Integer.parseInt(request.params(":stylistId"));
       Client client = Client.find(Integer.parseInt(request.params(":clientId")));
-      model.put("client", client);
-      model.put("template", "templates/client-edit.vtl");
+      client.delete();
+      response.redirect("/stylists/" + stylistId);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
     post("/stylists/:stylistId/clients/:clientId/delete", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      Client client = Client.find(Integer.parseInt(request.params(":clientId")));
+      int stylistId = Integer.parseInt(request.params(":stylistId"));
+      int clientId = Integer.parseInt(request.params(":clientId"));
+      Client client = Client.find(clientId);
       client.delete();
-      response.redirect("/stylists");
+      response.redirect("/stylists/" + stylistId);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
   }

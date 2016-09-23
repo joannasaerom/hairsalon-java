@@ -10,17 +10,17 @@
     <img src="$stylist.getImgUrl()">
     <h3><strong>Specialty:</strong> $stylist.getSpecialty()</h3>
     <h3><strong>Phone:</strong> $stylist.getPhone()</h3>
-    <h3><strong>Email:</strong> $stylist.getSalon()</h3>
+    <h3><strong>Email:</strong> $stylist.getEmail()</h3>
     <h3><Strong>Instagram:</strong> $stylist.getInstagram()</h3>
     <h3><strong>Days Available:</strong> $stylist.getDays()</h3>
     <h3><Strong>Bio:</strong> $stylist.getDays()</h3>
   </div>
   <hr>
   #if (!($clients.isEmpty()))
-  <p><a href="//stylists/$stylist.getId()/clients/new">Add new client.</a></p>
+  <p><a href="/stylists/$stylist.getId()/clients/new">Add new client.</a></p>
   #foreach ($client in $clients)
   <div class="hoverImage">
-    <a href="#">
+    <a href="/stylists/$stylist.getId()/clients/$client.getId()">
       <img src="$client.getImgUrl()" class="img-responsive">
       <div class="hoverText">
         <p>$client.getName()</p>
