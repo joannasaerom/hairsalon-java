@@ -5,27 +5,38 @@
   <a href="#">Services</a>
 </div>
 <div class="center">
-  <h2>$stylist.getName() <span class="editIcons"> <a href="/stylists/$stylist.getId()/edit" title="Edit stylist"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="/stylists/$stylist.getId()/delete" title="Delete stylist"><i class="fa fa-trash-o" aria-hidden="true"></i></a></span></h2>
+  <h2>$stylist.getName()</h2>
+
+  <div class="editIcons">
+    <a href="/stylists/$stylist.getId()/edit" title="Edit stylist"><button type="submit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+    <form action="/stylists/$stylist.getId()/delete" method="post"><button type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></form>
+  </div>
   <div class="description">
-    <img src="$stylist.getImgUrl()">
+    <img class="bioImage" src="$stylist.getImgUrl()">
     <h3><strong>Specialty:</strong> $stylist.getSpecialty()</h3>
     <h3><strong>Phone:</strong> $stylist.getPhone()</h3>
     <h3><strong>Email:</strong> $stylist.getEmail()</h3>
     <h3><Strong>Instagram:</strong> $stylist.getInstagram()</h3>
     <h3><strong>Days Available:</strong> $stylist.getDays()</h3>
-    <h3><Strong>Bio:</strong> $stylist.getDays()</h3>
+    <h3><Strong>Bio:</strong> $stylist.getBio()</h3>
   </div>
   <hr>
   #if (!($clients.isEmpty()))
   <p><a href="/stylists/$stylist.getId()/clients/new">Add new client.</a></p>
   #foreach ($client in $clients)
-  <div class="hoverImage">
-    <a href="/stylists/$stylist.getId()/clients/$client.getId()">
-      <img src="$client.getImgUrl()" class="img-responsive">
-      <div class="hoverText">
-        <p>$client.getName()</p>
-      </div>
-    </a>
+  <div class="clientList">
+    <p>$client.getName()</p>
+    <p>Next Appt:</p>
+    <p>$client.getNextAppt()</p>
+    <div class="hoverImage">
+      <a href="/stylists/$stylist.getId()/clients/$client.getId()">
+        <img src="$client.getImgUrl()" class="img-responsive">
+        <div class="hoverText">
+          <p>$client.getPhone()</p>
+          <p>$client.getEmail()</p>
+        </div>
+      </a>
+    </div>
   </div>
   #end
   #else

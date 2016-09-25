@@ -5,8 +5,12 @@
   <a href="#">Services</a>
 </div>
 <div class="center">
-  <h2>$client.getName() <span class="editIcons"> <a href="/stylists/$stylist.getId()/clients/$client.getId()/edit" title="Edit Client"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="/stylists/$stylist.getId()/clients/$client.getId()/delete" title="Delete Client"><i class="fa fa-trash-o" aria-hidden="true"></i></a></span></h2>
-  <img src="$client.getImgUrl()">
+  <h2>$client.getName()</h2>
+    <div class="editIcons">
+      <a href="/stylists/$stylist.getId()/clients/$client.getId()/edit"><button type="submit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+      <form action="/stylists/$stylist.getId()/clients/$client.getId()/delete" method="post"><button type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></form>
+    </div>
+  <img class="bioImage" src="$client.getImgUrl()">
   <div class="description">
     <h3><strong>Phone:</strong> $client.getPhone()</h3>
     <h3><strong>Email:</strong> $client.getEmail()</h3>

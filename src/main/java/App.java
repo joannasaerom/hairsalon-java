@@ -75,8 +75,9 @@ public class App {
       String phone = request.queryParams("phone");
       String email = request.queryParams("email");
       String imgURL = request.queryParams("imgURL");
-      Date nextAppt = Date.valueOf(request.queryParams("nextAppt"));
-      Client client = new Client(name, phone, email, nextAppt, imgURL, stylistId);
+      String nextAppt = request.queryParams("nextAppt");
+      Date nextAppt1 = Date.valueOf(nextAppt);
+      Client client = new Client(name, phone, email, nextAppt1, imgURL, stylistId);
       client.save();
       response.redirect("/stylists/" + stylistId);
       return new ModelAndView(model, layout);
@@ -126,7 +127,6 @@ public class App {
     get("/stylists/:stylistId/delete", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylistId")));
-      stylist.delete();
       response.redirect("/stylists");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -170,8 +170,6 @@ public class App {
     get("/stylists/:stylistId/clients/:clientId/delete", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       int stylistId = Integer.parseInt(request.params(":stylistId"));
-      Client client = Client.find(Integer.parseInt(request.params(":clientId")));
-      client.delete();
       response.redirect("/stylists/" + stylistId);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
