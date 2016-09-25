@@ -9,13 +9,15 @@
   #if (!($stylists.isEmpty()))
   <p><a href="/stylists/new">Add new hairstylist.</a></p>
   #foreach ($stylist in $stylists)
-  <div class="hoverImage">
-    <a href="/stylists/$stylist.getId()">
-      <img src="$stylist.getImgUrl()" class="img-responsive">
-      <div class="hoverText">
-        <p>$stylist.getName()</p>
-      </div>
-    </a>
+  <div class="imgColumns">
+    <div class="hoverImage">
+      <a href="/stylists/$stylist.getId()">
+        <img src="$stylist.getImgUrl()" class="img-responsive">
+        <div class="hoverText">
+          <p>$stylist.getName()</p>
+        </div>
+      </a>
+    </div>
   </div>
   #end
   #else

@@ -6,7 +6,6 @@
 </div>
 <div class="center">
   <h2>$stylist.getName()</h2>
-
   <div class="editIcons">
     <a href="/stylists/$stylist.getId()/edit" title="Edit stylist"><button type="submit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
     <a href="/stylists/$stylist.getId()/delete"><button type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
@@ -24,7 +23,7 @@
   #if (!($clients.isEmpty()))
   <p><a href="/stylists/$stylist.getId()/clients/new">Add new client.</a></p>
   #foreach ($client in $clients)
-  <div class="clientList">
+  <div class="imgColumns">
     <p>$client.getName()</p>
     <p>Next Appt:</p>
     <p>$client.getNextAppt()</p>
