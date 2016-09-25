@@ -22,10 +22,12 @@ a{
   text-transform: uppercase;
 }
 a:hover{
-  color: white;
-  padding: 5px;
+  color: black;
   text-decoration: none;
-  background-color: black;
+  /*background-color: black;*/
+}
+a:hover:before{
+  content: url(../../img/glyphicons-599-scissors-alt.png);
 }
 .nav {
   margin-top: 2%;
