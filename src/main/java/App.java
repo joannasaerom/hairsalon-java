@@ -127,7 +127,9 @@ public class App {
     get("/stylists/:stylistId/delete", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylistId")));
-      response.redirect("/stylists");
+      model.put("stylist", stylist);
+      model.put("template", "templates/stylist.vtl");
+      model.put("template2", "templates/stylist-delete.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -169,8 +171,12 @@ public class App {
 
     get("/stylists/:stylistId/clients/:clientId/delete", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      int stylistId = Integer.parseInt(request.params(":stylistId"));
-      response.redirect("/stylists/" + stylistId);
+      // int stylistId = Integer.parseInt(request.params(":stylistId"));
+      int clientId = Integer.parseInt(request.params(":clientId"));
+      Client client = Client.find(clientId);
+      model.put("client", client);
+      model.put("template2", "templates/client-delete.vtl");
+      model.put("template", "templates/client-delete.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 

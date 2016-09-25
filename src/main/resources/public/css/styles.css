@@ -32,7 +32,7 @@ a:hover:before{
   margin-top: 2%;
   font-size: 13pt;
 }
-.bannerText a:hover:before, .hoverImage a:hover:before{
+.bannerText a:hover:before, .hoverImage a:hover:before, .editIcons a:hover:before{
   content: none;
 }
 input{
@@ -183,7 +183,7 @@ p{
   background-color: rgba(0,0,0,0.9);
 }
 .editIcons button, .editIcons a{
-  float: left;
+  font-size: 30px;
   background: none;
   border: none;
   margin: 0 auto;
@@ -240,4 +240,8 @@ a.noHover:hover {
 }
 hr{
   margin-top: 5%;
+}
+.delete {
+  float: right;
+  margin-right: 30px;
 }
