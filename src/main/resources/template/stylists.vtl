@@ -1,0 +1,24 @@
+<!-- Navigation Bar -->
+<div class="nav">
+  <a href="/">Home</a> |
+  <a href="/stylists">View Stylists</a> |
+  <a href="#">Services</a>
+</div>
+<div class="center">
+  <h2>View Stylists:</h2>
+  #if (!($stylists.isEmpty()))
+  <p><a href="/stylists/new">Add new hairstylist.</a></p>
+  #foreach ($stylist in $stylists)
+  <div class="hoverImage">
+    <a href="/stylists/$stylist.getId()">
+      <img src="$stylist.getImgUrl()" class="img-responsive">
+      <div class="hoverText">
+        <p>$stylist.getName()</p>
+      </div>
+    </a>
+  </div>
+  #end
+  #else
+    <p>You currently have 0 stylists. <a href="/stylists/new">Add one now.</a></p>
+  #end
+</div>

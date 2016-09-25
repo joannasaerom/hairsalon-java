@@ -10,7 +10,7 @@ body{
 h1{
   font-family: 'Abril Fatface', cursive;
   color: white;
-  font-size: 5.5em;
+  font-size: 7em;
   width: 1000px;
   text-align: center;
   /*padding-right: 15px;*/
@@ -24,7 +24,6 @@ a{
 a:hover{
   color: black;
   text-decoration: none;
-  /*background-color: black;*/
 }
 a:hover:before{
   content: url(../../img/glyphicons-599-scissors-alt.png);
@@ -32,6 +31,9 @@ a:hover:before{
 .nav {
   margin-top: 2%;
   font-size: 13pt;
+}
+.bannerText a:hover:before, .hoverImage a:hover:before{
+  content: none;
 }
 input{
   border: none;
@@ -108,11 +110,10 @@ h2{
   color: black;
   font-weight: bolder;
   border-radius: 0px;
-  margin-left: 0px;
+  margin: 0 auto;
 }
-
 .bannerText .left {
-  margin-left: 10%;
+  margin-left: 350px;
 }
 .bannerText button:hover {
   background: rgba(255, 255, 255, 0.3);
@@ -162,11 +163,13 @@ p{
   text-decoration: none;
   background-color: none;
 }
+
 .hoverText p{
   font-size: 25px;
   line-height: 20px;
   text-align: center;
   width: 250px;
+  margin-top: 10%;
 }
 .hoverImage:hover .hoverText{
   opacity: 1;

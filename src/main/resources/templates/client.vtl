@@ -6,12 +6,13 @@
 </div>
 <div class="center">
   <h2>$client.getName()</h2>
-    <div class="editIcons">
-      <a href="/stylists/$stylist.getId()/clients/$client.getId()/edit"><button type="submit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-      <form action="/stylists/$stylist.getId()/clients/$client.getId()/delete" method="post"><button type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></form>
-    </div>
-  <img class="bioImage" src="$client.getImgUrl()">
+  <div class="editIcons">
+    <a href="/stylists/$stylist.getId()/clients/$client.getId()/edit"><button type="submit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+    <form action="/stylists/$stylist.getId()/clients/$client.getId()/delete" method="post"><button type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></form>
+  </div>
   <div class="description">
+    <img class="bioImage" src="$client.getImgUrl()">
+
     <h3><strong>Phone:</strong> $client.getPhone()</h3>
     <h3><strong>Email:</strong> $client.getEmail()</h3>
     <h4><strong>Next Appointment:</strong> $client.getNextAppt()</h4>
