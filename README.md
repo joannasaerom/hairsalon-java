@@ -13,10 +13,12 @@ _This application is a customized hair salon website that allows employers to ea
 1. Go to [my GitHub](https://github.com/jsaerom/hairsalon-java)
 2. Click Clone or download and choose either the Open in Desktop option or Download Zip option
 **OR**
+
 1. Open Terminal
-2. Command $ git clone https://github.com/jsaerom/hairsalon-java
+2. Command `$ git clone https://github.com/jsaerom/hairsalon-java`
 
 In PSQL:
+
 1. CREATE DATABASE hair_salon;
 2. CREATE TABLE stylists (id serial PRIMARY KEY, name varchar, phone varchar, img_url varchar, email varchar, bio varchar, instagram varchar, specialty varchar, days varchar);
 3. CREATE TABLE clients (id serial PRIMARY KEY, name varchar, phone varchar, email varchar, next_appt timestamp, img_url varchar, stylistId int);
