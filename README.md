@@ -1,6 +1,6 @@
 # _Hair Salon Website_
 
-#### _Allows hair salong to keep track of stylists and clients._
+#### _Allows hair salon to keep track of stylists and clients._
 
 #### By _**Joanna Anderson**_
 
@@ -22,7 +22,7 @@ In PSQL:
 1. CREATE DATABASE hair_salon;
 2. CREATE TABLE stylists (id serial PRIMARY KEY, name varchar, phone varchar, img_url varchar, email varchar, bio varchar, instagram varchar, specialty varchar, days varchar);
 3. CREATE TABLE clients (id serial PRIMARY KEY, name varchar, phone varchar, email varchar, next_appt timestamp, img_url varchar, stylistId int);
-4. Run the following command: $ psql media < media.sql
+4. Run the following command: `$ psql media < media.sql`
 
 ## Technologies Used
 
